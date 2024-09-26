@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1076749618274",
+    "project_id": "dream-destiny-86e73",
+    "storage_bucket": "dream-destiny-86e73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076749618274:android:457d273a38f3582134553b",
+        "android_client_info": {
+          "package_name": "com.example.dream_destiny"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW2cbrintyRTAX70y63u-9mksumhu3zII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
