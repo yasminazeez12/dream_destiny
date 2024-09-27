@@ -11,15 +11,7 @@ class _PackagesState extends State<Packages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text('Kerala'),
-        actions: [
-          IconButton(onPressed: () {
-            
-          }, icon:Icon(Icons.arrow_drop_down))
-        ],
-      ),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

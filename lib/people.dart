@@ -1,7 +1,6 @@
-import 'package:dream_destiny/homepage.dart';
+import 'package:dream_destiny/Navbar/homepage.dart';
 import 'package:dream_destiny/logo.dart';
-import 'package:dream_destiny/mybottomnavbar.dart';
-import 'package:dream_destiny/vendors.dart';
+import 'package:dream_destiny/Navbar/mybottomnavbar.dart';
 import 'package:flutter/material.dart';
 
 class People extends StatefulWidget {
