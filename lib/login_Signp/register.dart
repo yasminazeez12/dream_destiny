@@ -44,6 +44,7 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                 ),
+                Text("test2"),
                 Text("Welcome Register to Destiny APP",style: TextStyle(fontSize: 28,fontWeight: FontWeight.bold,color: Colors.white),),
             
                 SizedBox(height: 50,),
