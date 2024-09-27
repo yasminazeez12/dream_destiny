@@ -1,7 +1,7 @@
-import 'package:dream_destiny/Navbar/allcategories.dart';
+import 'package:dream_destiny/Navbar/vendors.dart';
 import 'package:dream_destiny/Navbar/homepage.dart';
 import 'package:dream_destiny/Navbar/ideas.dart';
-import 'package:dream_destiny/packages.dart';
+import 'package:dream_destiny/Navbar/packages.dart';
 
 import 'package:flutter/material.dart';
 

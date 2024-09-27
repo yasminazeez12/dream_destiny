@@ -7,7 +7,7 @@ import 'package:dream_destiny/admin/grandevent.dart';
 import 'package:dream_destiny/admin/rating.dart';
 import 'package:dream_destiny/callvendor.dart';
 import 'package:dream_destiny/categories.dart';
-import 'package:dream_destiny/Navbar/allcategories.dart';
+import 'package:dream_destiny/Navbar/vendors.dart';
 import 'package:dream_destiny/continuepage.dart';
 import 'package:dream_destiny/dataupload_view/uploadweddingdata/uploaddata.dart';
 import 'package:dream_destiny/district.dart';
@@ -28,7 +28,7 @@ import 'package:dream_destiny/Navbar/ideas.dart';
 import 'package:dream_destiny/Navbar/mybottomnavbar.dart';
 
 
-import 'package:dream_destiny/packages.dart';
+import 'package:dream_destiny/Navbar/packages.dart';
 import 'package:dream_destiny/gopage.dart';
 import 'package:dream_destiny/inbox.dart';
 import 'package:dream_destiny/login_Signp/login.dart';

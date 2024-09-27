@@ -1,7 +1,10 @@
 import 'package:dream_destiny/categories/photographers.dart';
 import 'package:flutter/material.dart';
 
+import '../categories/decorations.dart';
+import '../categories/food.dart';
 import '../categories/weddingvenues.dart';
+import '../dataupload_view/uploadweddingdata/uploaddata.dart';
 
 class Allcategories extends StatefulWidget {
   const Allcategories({super.key});
@@ -61,16 +64,22 @@ class _AllcategoriesState extends State<Allcategories> {
         title: Text('Kerala'),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.upload))
+          IconButton(onPressed: () {Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => Uploadwedding(),
+          ));}, icon: Icon(Icons.upload)),
+
         ],
       ),
-      body: Column(
-        children: [
-          _categorycard('PHOTOGRAPHY', Photographers(),
-              'assets/0e2bb03fc87bd002a83f180cea3b2161.png', Colors.cyanAccent),
-          _categorycard('WEDDING VENUE', Weddingvenues(),
-              'assets/5 Star Luxury Resort in Bekal, Kerala - Taj Bekal Resort & Spa, Kerala.jpg',Colors.greenAccent)
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            _categorycard('PHOTOGRAPHY', Photographers(),
+                'assets/0e2bb03fc87bd002a83f180cea3b2161.png', Colors.cyanAccent),
+            _categorycard('WEDDING VENUE', Weddingvenues(),
+                'assets/5 Star Luxury Resort in Bekal, Kerala - Taj Bekal Resort & Spa, Kerala.jpg',Colors.greenAccent),
+            _categorycard("Food",Food(), "assets/Chicken Milega Kya_.jpg", Colors.yellow),
+          ],
+        ),
       ),
     );
   }
