@@ -7,7 +7,7 @@ import 'package:dream_destiny/admin/grandevent.dart';
 import 'package:dream_destiny/admin/rating.dart';
 import 'package:dream_destiny/callvendor.dart';
 import 'package:dream_destiny/categories.dart';
-import 'package:dream_destiny/categories/allcategories.dart';
+import 'package:dream_destiny/Navbar/allcategories.dart';
 import 'package:dream_destiny/continuepage.dart';
 import 'package:dream_destiny/dataupload_view/uploadweddingdata/uploaddata.dart';
 import 'package:dream_destiny/district.dart';
@@ -21,23 +21,22 @@ import 'package:dream_destiny/events/eventsgrant.dart';
 import 'package:dream_destiny/events/keralavenues.dart';
 import 'package:dream_destiny/events/message.dart';
 import 'package:dream_destiny/firebase_options.dart';
-import 'package:dream_destiny/homepage.dart';
+import 'package:dream_destiny/Navbar/homepage.dart';
 
-import 'package:dream_destiny/ideas.dart';
+import 'package:dream_destiny/Navbar/ideas.dart';
 
-import 'package:dream_destiny/mybottomnavbar.dart';
+import 'package:dream_destiny/Navbar/mybottomnavbar.dart';
 
 
 import 'package:dream_destiny/packages.dart';
-import 'package:dream_destiny/vendors.dart';
 import 'package:dream_destiny/gopage.dart';
 import 'package:dream_destiny/inbox.dart';
-import 'package:dream_destiny/login.dart';
+import 'package:dream_destiny/login_Signp/login.dart';
 import 'package:dream_destiny/logo.dart';
 import 'package:dream_destiny/people.dart';
 import 'package:dream_destiny/profile.dart';
 import 'package:dream_destiny/profileview.dart';
-import 'package:dream_destiny/register.dart';
+import 'package:dream_destiny/login_Signp/register.dart';
 import 'package:dream_destiny/search.dart';
 import 'package:dream_destiny/events/eventslogin.dart';
 import 'package:dream_destiny/venues.dart';
@@ -83,7 +82,11 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home:Mybottomnavbar(),
+      // home:Login(),
+      // home:Adlogin(),
       home:Login(),
+
+
 
     );
   }

@@ -1,4 +1,4 @@
-import 'package:dream_destiny/register.dart';
+import 'package:dream_destiny/login_Signp/register.dart';
 import 'package:flutter/material.dart';
 
 class Startingpage extends StatefulWidget {

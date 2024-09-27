@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dream_destiny/usermodel.dart';
+import 'package:dream_destiny/login_Signp/usermodel.dart';
 
 class Databasemethods {
 

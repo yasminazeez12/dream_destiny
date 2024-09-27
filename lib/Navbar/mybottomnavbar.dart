@@ -1,8 +1,8 @@
-import 'package:dream_destiny/categories/allcategories.dart';
-import 'package:dream_destiny/homepage.dart';
-import 'package:dream_destiny/ideas.dart';
+import 'package:dream_destiny/Navbar/allcategories.dart';
+import 'package:dream_destiny/Navbar/homepage.dart';
+import 'package:dream_destiny/Navbar/ideas.dart';
 import 'package:dream_destiny/packages.dart';
-import 'package:dream_destiny/vendors.dart';
+
 import 'package:flutter/material.dart';
 
  class Mybottomnavbar extends StatefulWidget {
@@ -23,7 +23,7 @@ class _MybottomnavbarState extends State<Mybottomnavbar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+
       body:pages[selectedIndex], 
       bottomNavigationBar: BottomNavigationBar(items:[
         BottomNavigationBarItem(icon:Icon(Icons.home),

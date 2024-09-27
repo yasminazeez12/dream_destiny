@@ -2,7 +2,7 @@ import 'package:dream_destiny/district.dart';
 import 'package:dream_destiny/inbox.dart';
 import 'package:dream_destiny/profile.dart';
 import 'package:dream_destiny/search.dart';
-import 'package:dream_destiny/vendors.dart';
+
 import 'package:dream_destiny/categories/weddingvenues.dart';
 import 'package:flutter/material.dart';
 
