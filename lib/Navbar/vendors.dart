@@ -1,9 +1,10 @@
 import 'package:dream_destiny/categories/makeup.dart';
 import 'package:dream_destiny/categories/photographers.dart';
-import 'package:dream_destiny/uploadideas/modelideas.dart';
-import 'package:dream_destiny/uploadideas/uploadideas.dart';
+
 import 'package:flutter/material.dart';
 
+import '../Upload/UploadSelect.dart';
+import '../Upload/uploadideas/uploadideas.dart';
 import '../categories/decorations.dart';
 import '../categories/food.dart';
 import '../categories/weddingvenues.dart';
@@ -16,11 +17,9 @@ class Allcategories extends StatefulWidget {
   State<Allcategories> createState() => _AllcategoriesState();
 }
 
-
 class _AllcategoriesState extends State<Allcategories> {
+  //this is template by using class
 
-  //this is template by using class  
-  
   Widget _categorycard(
       String title, Widget destinationpage, String image, Color color) {
     return InkWell(
@@ -51,12 +50,14 @@ class _AllcategoriesState extends State<Allcategories> {
                 ),
                 // SizedBox(width: 250,),
                 Container(
-                    width: 100,
-                    height: 100,
-                    color: Colors.grey,
-                    child: Image.asset(image,fit: BoxFit.cover,),
-                    
-                    )
+                  width: 100,
+                  height: 100,
+                  color: Colors.grey,
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.cover,
+                  ),
+                )
               ],
             ),
           ),
@@ -73,31 +74,38 @@ class _AllcategoriesState extends State<Allcategories> {
         title: Text('Kerala'),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          IconButton(onPressed: () {Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => Uploadwedding(),
-          ));}, icon: Icon(Icons.upload)),IconButton(onPressed: () {Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) =>Uploadideas(),
-          ));}, icon: Icon(Icons.upload)),
-
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Uploadselect(),
+                ));
+              },
+              icon: Icon(Icons.upload)),
 
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            _categorycard('PHOTOGRAPHY', Photographers(),
-                'assets/0e2bb03fc87bd002a83f180cea3b2161.png', Colors.cyanAccent),
-            _categorycard('WEDDING VENUE', Weddingvenues(),
-                'assets/5 Star Luxury Resort in Bekal, Kerala - Taj Bekal Resort & Spa, Kerala.jpg',Colors.greenAccent),
-            _categorycard("FOOD",Food(), "assets/Chicken Milega Kya_.jpg", Colors.yellow),
-            _categorycard("DECORATERS",Decorations(), "assets/e4a57eb77677f1de2a0b9e36ad8b1257.jpg", Colors.purpleAccent),
-            _categorycard("MAKEUP", Makeup(), "assets/Minimal Makeup Look _ Olready.jpg", Colors.orangeAccent)
-            
-
-          
-
-            
-
+            _categorycard(
+                'PHOTOGRAPHY',
+                Photographers(),
+                'assets/0e2bb03fc87bd002a83f180cea3b2161.png',
+                Colors.cyanAccent),
+            _categorycard(
+                'WEDDING VENUE',
+                Weddingvenues(),
+                'assets/5 Star Luxury Resort in Bekal, Kerala - Taj Bekal Resort & Spa, Kerala.jpg',
+                Colors.greenAccent),
+            _categorycard("FOOD", Food(), "assets/Chicken Milega Kya_.jpg",
+                Colors.yellow),
+            _categorycard(
+                "DECORATERS",
+                Decorations(),
+                "assets/e4a57eb77677f1de2a0b9e36ad8b1257.jpg",
+                Colors.purpleAccent),
+            _categorycard("MAKEUP", Makeup(),
+                "assets/Minimal Makeup Look _ Olready.jpg", Colors.orangeAccent)
           ],
         ),
       ),

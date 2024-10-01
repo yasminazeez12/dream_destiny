@@ -32,22 +32,4 @@ class WeddingUploadModel{
     };
    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

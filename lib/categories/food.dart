@@ -5,7 +5,7 @@ import 'package:dream_destiny/categories/productpreview.dart';
 import 'package:dream_destiny/dataupload_view/modelweddingdata/modelupload.dart';
 import 'package:flutter/material.dart';
 
-
+import '../cartProviderModel/podctPeviewsingProvider.dart';
 
 // Ensure this import is correct
 
@@ -31,53 +31,10 @@ class _FoodState extends State<Food> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.green,
+      appBar: AppBar(
+        backgroundColor: Colors.green,
         title: const Text("food"),
       ),
-      
-      // bottomNavigationBar: BottomAppBar(child: Container(
-      //   width: double.infinity,
-      //   height: 50,
-      //   child: Row(
-      //     crossAxisAlignment: CrossAxisAlignment.start,
-      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //     children: [IconButton(
-      //       icon: Icon(size: 30,Icons.home_outlined),
-      //       color: Colors.blue ,
-      //       onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>LandingPage()));
-      //       },
-      //     ),
-      //       IconButton(
-      //         icon: Icon(size: 30,
-      //           Icons.cleaning_services,),
-      //         color: Colors.grey ,
-      //         onPressed: () {
-      //         },
-      //       ),
-      //       IconButton(
-      //         icon: Icon(size: 30,
-      //           Icons.shopping_cart_outlined,),
-      //         color: Colors.grey ,
-      //         onPressed: () {
-      //         },
-      //       ),IconButton(
-      //         icon: Icon(size: 30,
-      //           Icons.person_2_outlined,),
-      //         color: Colors.grey ,
-      //         onPressed: () {
-      //         },
-      //       ),IconButton(
-      //         icon: Icon(size: 30,
-      //           Icons.cleaning_services,),
-      //         color: Colors.grey ,
-      //         onPressed: () {
-      //         },
-      //       ),
-
-      //     ],),
-      // ),),
-
-
       body: StreamBuilder<QuerySnapshot>(
         stream: _streamweddingitems,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -127,15 +84,22 @@ class _FoodState extends State<Food> {
                               ? thisItem.name
                               : 'Name not available',
                           textAlign: TextAlign.center,
-                          style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18),
                         ),
                         Text('Price:  ${thisItem.price.toString()}\$'),
                         Text('place:${thisItem.place.toString()}'),
                         TextButton(
                             onPressed: () {
-                             
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ProductPreviewProvider(
+                                            detailedProduct: thisItem,
+                                          )));
                             },
-                            child: Text("FOR BUY"))
+                            child: Text("View"))
                       ],
                     ));
               },

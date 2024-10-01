@@ -1,11 +1,12 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dream_destiny/uploadpackagedeatils/modelpackage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+
+import 'modelpackage.dart';
 
 class Uploadpackages extends StatefulWidget {
   const Uploadpackages({super.key});
@@ -68,6 +69,7 @@ class _UploadpackagesState extends State<Uploadpackages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Form(
         key: _formkey,
         child: Center(
