@@ -9,14 +9,14 @@ import 'package:flutter/material.dart';
 
 // Ensure this import is correct
 
-class decorations extends StatefulWidget {
-  const decorations.decorations({super.key});
+class Decorations extends StatefulWidget {
+  const Decorations({super.key});
 
   @override
-  State<decorations> createState() => _decorationsState();
+  State<Decorations> createState() => _DecorationsState();
 }
 
-class _decorationsState extends State<decorations> {
+class _DecorationsState extends State<Decorations> {
   late Stream<QuerySnapshot> _streamweddingitems;
 
   @override
@@ -24,7 +24,7 @@ class _decorationsState extends State<decorations> {
     super.initState();
     _streamweddingitems = FirebaseFirestore.instance
         .collection('weddingdetails')
-        .where('category', isEqualTo: 'decorations')
+        .where('category', isEqualTo: 'decorators')
         .snapshots();
   }
 
@@ -135,7 +135,7 @@ class _decorationsState extends State<decorations> {
                             onPressed: () {
                              
                             },
-                            child: Text("FOR BUY"))
+                            child: Text("Message"))
                       ],
                     ));
               },

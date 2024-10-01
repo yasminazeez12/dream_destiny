@@ -1,6 +1,10 @@
-import 'package:dream_destiny/district.dart';
+import 'package:dream_destiny/categories/decorations.dart';
+import 'package:dream_destiny/categories/makeup.dart';
+import 'package:dream_destiny/categories/photographers.dart';
+
 import 'package:dream_destiny/inbox.dart';
-import 'package:dream_destiny/profile.dart';
+
+import 'package:dream_destiny/profiledetails/profilepage.dart';
 import 'package:dream_destiny/search.dart';
 
 import 'package:dream_destiny/categories/weddingvenues.dart';
@@ -15,27 +19,106 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   int selectedIndex=0;
+
+  Widget _imagecard(String description,String image,Widget destinationpage){
+    return  InkWell(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => destinationpage,));
+      },
+      child: Row(
+        children: [
+          Column(
+
+            children: [
+              Container(
+                height: 120,
+                  width: 120,
+                  child:Image.asset(image)
+              ),
+
+
+              Text(description),
+
+            ],
+          ),
+          SizedBox(width: 30,),
+        ],
+      ),
+
+
+    );
+
+  }
+  Widget _weddingavatharcard(String description,String image,Widget destinationpage){
+    return  InkWell(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => destinationpage,));
+      },
+      child: Row(
+        children: [
+          Column(
+            
+                    children: [
+                      Container(
+                        child: CircleAvatar(
+                          radius: 40,
+                          backgroundImage: AssetImage(image),
+                          
+                          
+                      
+                        )
+                      ),
+                      
+                    
+                      Text(description),
+                    
+                    ],
+                  ),
+                  SizedBox(width: 30,),
+        ],
+      ),
+              
+              
+    );
+    
+
+            
+  }
+   Widget _makeupcard(String description,int price,String place,String image,Widget destinationpage){
+    return  InkWell(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => destinationpage,));
+      },
+      child: Row(
+        children: [
+          Column(
+
+            children: [
+              Container(
+                height: 80,
+                  width: 80,
+                  child:Image.asset(image)
+              ),
+
+
+              Text(description),
+
+            ],
+          ),
+          SizedBox(width: 30,),
+        ],
+      ),
+
+
+    );
+
+  }
+
   @override
-  List<Map<String,dynamic>> details=[
-    {
-      "image":"assets/bdb2b3175179ba0534979f0608f8997c.jpg",
-      "text":"Wedding venues",
-    },
-     {
-      "image":"assets/28 Picture Perfect Wedding Poses For Indian Couples To Try - Eternity.jpg",
-      "text":"Wedding photographers",
-    },
-     {
-      "image":"assets/b9728feb984a20de9c4d2ed1efa9cde2.jpg",
-      "text":"Wedding decoraters",
-    },
-     {
-      "image":"assets/Beautiful Hindu Bride _ Kerala Bride _ Kerala Bridal Makeup _ Hindu Wedding Makeup _ Red Silk Saree.jpg",
-      "text":"Bridal makeup",
-    },
+  
    
    
-  ];
+  
   List<Map<String,dynamic>> tools=[
 
    { "color":const Color.fromARGB(255, 104, 228, 212),
@@ -98,10 +181,11 @@ class _HomepageState extends State<Homepage> {
   
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(onPressed: () {
-           Navigator.of(context).push(MaterialPageRoute(builder: (context) => District(),));
+          
           
         }, icon:Icon(Icons.arrow_drop_down),color: Colors.pink,),
         title: Text('Kerala',style: TextStyle(color: Colors.pink),),
@@ -116,7 +200,7 @@ class _HomepageState extends State<Homepage> {
             
           }, icon:Icon(Icons.message)),
            IconButton(onPressed: () {
-             Navigator.of(context).push(MaterialPageRoute(builder: (context) =>Profile(),));
+             Navigator.of(context).push(MaterialPageRoute(builder: (context) =>Profilepage(),));
 
             
           }, icon:Icon(Icons.person)),
@@ -128,53 +212,28 @@ class _HomepageState extends State<Homepage> {
     
       body: SingleChildScrollView(
         child: Column(
+  
+          
           children: [
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  height: 150,
-                  child: ListView.builder(
-                    scrollDirection:Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: details.length,
-                    itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => Weddingvenues(),
-                        
-                          ));
-                          
-                        },
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              radius: 40,
-                              backgroundImage: AssetImage(details[index]["image"],
-                              
-                              
-                              ),
-                          
-                                        
-                            ),
-                            Text(details[index]["text"])
-                          ],
-                        ),
-                      ),
-                    );
-                    
-                    
-                      
-                  },
-                  
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
                 
-                  ),
-                ),
+                children: [
+                  _weddingavatharcard('Wedding venues', 'assets/bdb2b3175179ba0534979f0608f8997c.jpg',Weddingvenues()),
+                  _weddingavatharcard('Bridal makeup','assets/Beautiful Hindu Bride _ Kerala Bride _ Kerala Bridal Makeup _ Hindu Wedding Makeup _ Red Silk Saree.jpg' ,Makeup ()),
+                  _weddingavatharcard('wedding photographers','assets/28 Picture Perfect Wedding Poses For Indian Couples To Try - Eternity.jpg', Photographers() ),
+                  _weddingavatharcard('Wedding decorators', 'assets/b9728feb984a20de9c4d2ed1efa9cde2.jpg',Decorations() )
+                ],
               ),
             ),
+
+           
+
+
+
             SizedBox(height:10),
+            
             Divider(),
             Row(
               children: [
@@ -183,6 +242,7 @@ class _HomepageState extends State<Homepage> {
                   child: Text('Wedding planning tools'),
                 ),
                 SizedBox(width:5),
+
                 Container(
                   height: 30,
                   width: 60,
@@ -244,22 +304,10 @@ class _HomepageState extends State<Homepage> {
                 shrinkWrap: true,
                 itemCount: resorts.length,
                 itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: 150,
-                    width: 130,
-                    
-                    
-                     decoration: BoxDecoration(
-                      image: DecorationImage(image: AssetImage(resorts[index]["image"])),
-                       borderRadius: BorderRadius.all(Radius.circular(20),
-                       ),
-                       ),
-         ),
-         
-         
-         );
+                return _imagecard('Grand hyatt bolgaty', 'assets/Luxury Hotel in Kochi (Cochin) _ Grand Hyatt Kochi Bolgatty.jpg',Weddingvenues());
+                
+                
+                
          
          },
         
@@ -278,6 +326,7 @@ class _HomepageState extends State<Homepage> {
                 
               ),
               child: TextButton(onPressed:  () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => Weddingvenues(),));
                 
               }, child:Text('View all venues',
               style: TextStyle(color: const Color.fromARGB(255, 255, 147, 59)),),
@@ -313,23 +362,9 @@ class _HomepageState extends State<Homepage> {
                 shrinkWrap: true,
                 itemCount: makeup.length,
                 itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: 150,
-                    width: 130,
-                    
-                    
-                     decoration: BoxDecoration(
-                      image: DecorationImage(image: AssetImage(makeup[index]["image"])),
-                       borderRadius: BorderRadius.all(Radius.circular(20),
-                       ),
-                       ),
-         ),
-         
-         
-         );
-         
+                  return _makeupcard('Lintas beauty parlour', 15000, 'Trissur', 'assets/f1a820c4a3ca897fb4556625258d1baa.jpg',Makeup());
+                  
+                
          },
         
         
@@ -347,8 +382,9 @@ class _HomepageState extends State<Homepage> {
                 
               ),
               child: TextButton(onPressed:  () {
+                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => Makeup(),));
                 
-              }, child:Text('View all ',
+              }, child:Text('View all bridal makeup ',
               style: TextStyle(color: const Color.fromARGB(255, 255, 147, 59)),),
               style: ButtonStyle(
                 shape:WidgetStatePropertyAll(

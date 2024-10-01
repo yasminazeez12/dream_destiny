@@ -24,7 +24,8 @@ class _MakeupState extends State<Makeup> {
     super.initState();
     _streamweddingitems = FirebaseFirestore.instance
         .collection('weddingdetails')
-        .where('category', isEqualTo: 'makeup')
+        .where('category', isEqualTo: " makeup"
+)
         .snapshots();
   }
 
@@ -135,7 +136,7 @@ class _MakeupState extends State<Makeup> {
                             onPressed: () {
                              
                             },
-                            child: Text("FOR BUY"))
+                            child: Text("Message"))
                       ],
                     ));
               },

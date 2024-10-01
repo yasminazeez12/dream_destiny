@@ -9,19 +9,19 @@ import 'package:flutter/material.dart';
 
 // Ensure this import is correct
 
-class Photographers extends StatefulWidget {
+class Photographers extends StatefulWidget {   // step 1 : create statefull widget
   const Photographers({super.key});
 
   @override
   State<Photographers> createState() => _PhotographersState();
 }
 
-class _PhotographersState extends State<Photographers> {
-  late Stream<QuerySnapshot> _streamweddingitems;
+class _PhotographersState extends State<Photographers> {   
+  late Stream<QuerySnapshot> _streamweddingitems;           // step 2: creating this name custom _streamweddingitems
 
   @override
   void initState() {
-    super.initState();
+    super.initState();                                   // step 3 :to call firebase,firestore
     _streamweddingitems = FirebaseFirestore.instance
         .collection('weddingdetails')
         .where('category', isEqualTo: 'photographers')
@@ -78,23 +78,23 @@ class _PhotographersState extends State<Photographers> {
       // ),),
 
 
-      body: StreamBuilder<QuerySnapshot>(
-        stream: _streamweddingitems,
+      body: StreamBuilder<QuerySnapshot>(                     // step 4 : calling streambuilder
+        stream: _streamweddingitems,                         // step 5 : calling step 2 name
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
             return Center(child: Text(snapshot.error.toString()));
           }
           if (snapshot.connectionState == ConnectionState.active) {
-            List<WeddingUploadModel> items = snapshot.data!.docs
-                .map((doc) => WeddingUploadModel.fromMap(
+            List<WeddingUploadModel> items = snapshot.data!.docs            // saving firebase snapshots in items         
+                .map((doc) => WeddingUploadModel.fromMap(                    //(change current model name)
                     doc.data() as Map<String, dynamic>))
                 .toList();
 
             return GridView.builder(
               itemCount: items.length,
               itemBuilder: (BuildContext context, int index) {
-                WeddingUploadModel thisItem = items[index];
-                log('Image URL: ${thisItem.image}');
+                WeddingUploadModel thisItem = items[index];     // converting firebase list in to this item(changing with index)
+                log('Image URL: ${thisItem.image}');       // not important       
 
                 return Container(
                     decoration: BoxDecoration(
@@ -135,7 +135,7 @@ class _PhotographersState extends State<Photographers> {
                             onPressed: () {
                              
                             },
-                            child: Text("FOR BUY"))
+                            child: Text("Message"))
                       ],
                     ));
               },

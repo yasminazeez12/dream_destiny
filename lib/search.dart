@@ -1,3 +1,5 @@
+import 'package:dream_destiny/Navbar/homepage.dart';
+
 import 'package:flutter/material.dart';
 
 class Search extends StatefulWidget {
@@ -21,9 +23,12 @@ class _SearchState extends State<Search> {
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.search),
                 hintText: 'Search',
-                suffixIcon: Icon(Icons.cancel),
-              filled: true,
-              fillColor: const Color.fromARGB(255, 243, 184, 226),
+                suffixIcon: IconButton(onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => Homepage(),));
+                  
+                }, icon:Icon(Icons.cancel),
+                ),
+               
               
             
                 

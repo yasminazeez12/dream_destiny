@@ -135,7 +135,7 @@ class _WeddingvenuesState extends State<Weddingvenues> {
                             onPressed: () {
                              
                             },
-                            child: Text("FOR BUY"))
+                            child: Text("View"))
                       ],
                     ));
               },

@@ -10,7 +10,7 @@ import 'package:dream_destiny/categories.dart';
 import 'package:dream_destiny/Navbar/vendors.dart';
 import 'package:dream_destiny/continuepage.dart';
 import 'package:dream_destiny/dataupload_view/uploadweddingdata/uploaddata.dart';
-import 'package:dream_destiny/district.dart';
+
 import 'package:dream_destiny/eventmanagment.dart';
 import 'package:dream_destiny/events/enquiry.dart';
 import 'package:dream_destiny/events/eventrating.dart';
@@ -34,8 +34,8 @@ import 'package:dream_destiny/inbox.dart';
 import 'package:dream_destiny/login_Signp/login.dart';
 import 'package:dream_destiny/logo.dart';
 import 'package:dream_destiny/people.dart';
-import 'package:dream_destiny/profile.dart';
-import 'package:dream_destiny/profileview.dart';
+
+
 import 'package:dream_destiny/login_Signp/register.dart';
 import 'package:dream_destiny/search.dart';
 import 'package:dream_destiny/events/eventslogin.dart';
@@ -83,7 +83,7 @@ class MyApp extends StatelessWidget {
       ),
       // home:Mybottomnavbar(),
       // home:Login(),
-      // home:Adlogin(),
+      // home:Homepage(),
       home:Login(),
 
 
