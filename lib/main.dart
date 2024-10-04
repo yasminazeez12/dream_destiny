@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
         // home:Mybottomnavbar(),
         // home:Login(),
         // home:Homepage(),
-        home:Login(),
+        home:Startingpage(),
 
 
 

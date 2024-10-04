@@ -1,17 +1,14 @@
-import 'package:dream_destiny/Upload/uploadpackagedeatils/modelpackage.dart';
-import 'package:dream_destiny/cartProviderModel/cart_model.dart';
-import 'package:dream_destiny/cartProviderModel/producCartUsingProvider.dart';
-import 'package:dream_destiny/chat.dart';
+import 'package:dream_destiny/cartProviderModel/FavouriteListProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-
-
-
-class viewpackage extends StatelessWidget {
+import '../../../cartProviderModel/cart_model.dart';
+import '../../../chat.dart';
+import '../upload data/2_modelpackage.dart';
+class SigleViewProduct extends StatelessWidget {
   final Modelpackage detailedProduct;
 
-  const viewpackage({
+  const SigleViewProduct({
     Key? key,
     required this.detailedProduct,
   }) : super(key: key);
@@ -25,13 +22,13 @@ class viewpackage extends StatelessWidget {
         title: Text("Wedding Destiny"),
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => CartScreenProvider()));
-            },
-            icon:Icon(Icons.favorite,color: Colors.red,)
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CartScreenProvider()));
+              },
+              icon:Icon(Icons.favorite,color: Colors.red,)
           ),
         ],
       ),
@@ -42,9 +39,9 @@ class viewpackage extends StatelessWidget {
             height: 300,
             child: detailedProduct.image.isNotEmpty
                 ? Image.network(
-                    detailedProduct.image,
-                    fit: BoxFit.cover,
-                  )
+              detailedProduct.image,
+              fit: BoxFit.cover,
+            )
                 : const Icon(Icons.broken_image, size: 100),
           ),
           const SizedBox(height: 16),
@@ -57,7 +54,7 @@ class viewpackage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            detailedProduct.price,
+            detailedProduct.description,
             style: const TextStyle(fontSize: 16),
           ),
           const SizedBox(height: 32),
@@ -67,18 +64,18 @@ class viewpackage extends StatelessWidget {
               // ElevatedButton(
               //   onPressed: () {
               //     cart.addToCart(detailedProduct); // Add product to cart
-
+              //
               //     // Show a SnackBar message when product is added
               //     ScaffoldMessenger.of(context).showSnackBar(
               //       SnackBar(
-              //         content: Text('${detailedProduct.name} added to cart'),
+              //         content: Text('${detailedProduct.packagename} added to cart'),
               //         duration: const Duration(seconds: 2),
               //       ),
               //     );
               //   },
               //   child:Icon( Icons.favorite_border,
-              //   color: Colors.red,
-                
+              //     color: Colors.red,
+              //
               //   ),
               // ),
               ElevatedButton(
@@ -88,7 +85,7 @@ class viewpackage extends StatelessWidget {
                     ));
                   },
                   child: Text("Message",
-                  style: TextStyle(color: Colors.red),)),
+                    style: TextStyle(color: Colors.red),)),
             ],
           ),
         ],

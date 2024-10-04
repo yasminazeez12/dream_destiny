@@ -1,5 +1,5 @@
 import 'package:dream_destiny/Upload/uploadideas/uploadideas.dart';
-import 'package:dream_destiny/Upload/uploadpackagedeatils/uploadpackages.dart';
+import 'package:dream_destiny/Upload/uploadpackagedeatils/upload%20data/1_UI_uploadpackages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

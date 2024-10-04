@@ -2,6 +2,7 @@ import 'package:dream_destiny/Navbar/vendors.dart';
 import 'package:dream_destiny/Navbar/homepage.dart';
 import 'package:dream_destiny/Navbar/ideas.dart';
 import 'package:dream_destiny/Navbar/packages.dart';
+import 'package:dream_destiny/Upload/uploadpackagedeatils/ViewPackage/1_viewALLPackages.dart';
 
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _MybottomnavbarState extends State<Mybottomnavbar> {
     Homepage(),
     Allcategories(),
     Ideas(),
-    Packages(),
+    ViewAllPackage(),
   ];
   @override
   Widget build(BuildContext context) {

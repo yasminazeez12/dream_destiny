@@ -34,7 +34,7 @@ class _CartScreenProviderState extends State<CartScreenProvider> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Your Order',
+                      'Your favourites List Budget',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -79,7 +79,7 @@ class _CartScreenProviderState extends State<CartScreenProvider> {
                       ),
                       child: const Center(
                         child: Text(
-                          'Estimate Checkout',
+                          'Book Now',
                           style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ),

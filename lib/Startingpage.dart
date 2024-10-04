@@ -1,3 +1,4 @@
+import 'package:dream_destiny/login_Signp/login.dart';
 import 'package:dream_destiny/login_Signp/register.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +38,7 @@ class _StartingpageState extends State<Startingpage> {
               height: 50,
               width: 170,
               child: TextButton(onPressed:  () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => Register(),));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => Login(),));
                 
               }, child:Text('REGISTER NOW',
               style: TextStyle(
