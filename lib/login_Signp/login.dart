@@ -1,4 +1,6 @@
 import 'dart:developer';
+import 'package:dream_destiny/Startingpage.dart';
+import 'package:dream_destiny/admin/adlogin.dart';
 import 'package:dream_destiny/continuepage.dart';
 import 'package:dream_destiny/Navbar/homepage.dart';
 import 'package:dream_destiny/Navbar/mybottomnavbar.dart';
@@ -29,9 +31,20 @@ class _LoginState extends State<Login> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Center(
+          
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ElevatedButton(onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => Adlogin(),));
+                      
+                    }, child:Text('Admin')),
+                  ],
+                ),
+                SizedBox(height: 10,),
                 Text("Welcome back to Destiny APP",style: TextStyle(fontSize: 28,fontWeight: FontWeight.bold,color: Colors.white),),
 
                 SizedBox(height: 50,),
@@ -86,7 +99,7 @@ class _LoginState extends State<Login> {
                             password: password.text.trim(),
                           );
                           log(FirebaseAuth.instance.currentUser!.uid);
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => Continuepage()));
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>Continuepage()));
                         } on FirebaseAuthException catch (e) {
                           log('Error: $e');
                           // Optionally, show an error message to the user

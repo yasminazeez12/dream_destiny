@@ -1,14 +1,17 @@
+import 'package:dream_destiny/Upload/uploadpackagedeatils/modelpackage.dart';
+import 'package:dream_destiny/cartProviderModel/cart_model.dart';
 import 'package:dream_destiny/cartProviderModel/producCartUsingProvider.dart';
+import 'package:dream_destiny/chat.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../chat.dart';
-import '../dataupload_view/modelweddingdata/modelupload.dart';
-import 'cart_model.dart';
 
-class ProductPreviewProvider extends StatelessWidget {
-  final WeddingUploadModel detailedProduct;
 
-  const ProductPreviewProvider({
+
+
+class viewpackage extends StatelessWidget {
+  final Modelpackage detailedProduct;
+
+  const viewpackage({
     Key? key,
     required this.detailedProduct,
   }) : super(key: key);
@@ -46,7 +49,7 @@ class ProductPreviewProvider extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            detailedProduct.name,
+            detailedProduct.packagename,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 24,
@@ -54,30 +57,30 @@ class ProductPreviewProvider extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            detailedProduct.place,
+            detailedProduct.price,
             style: const TextStyle(fontSize: 16),
           ),
           const SizedBox(height: 32),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              ElevatedButton(
-                onPressed: () {
-                  cart.addToCart(detailedProduct); // Add product to cart
+              // ElevatedButton(
+              //   onPressed: () {
+              //     cart.addToCart(detailedProduct); // Add product to cart
 
-                  // Show a SnackBar message when product is added
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('${detailedProduct.name} added to cart'),
-                      duration: const Duration(seconds: 2),
-                    ),
-                  );
-                },
-                child:Icon( Icons.favorite_border,
-                color: Colors.red,
+              //     // Show a SnackBar message when product is added
+              //     ScaffoldMessenger.of(context).showSnackBar(
+              //       SnackBar(
+              //         content: Text('${detailedProduct.name} added to cart'),
+              //         duration: const Duration(seconds: 2),
+              //       ),
+              //     );
+              //   },
+              //   child:Icon( Icons.favorite_border,
+              //   color: Colors.red,
                 
-                ),
-              ),
+              //   ),
+              // ),
               ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(

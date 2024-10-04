@@ -177,7 +177,7 @@ class _UploadweddingState extends State<Uploadwedding> {
                       });
                     }
             
-                    ;
+                    
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

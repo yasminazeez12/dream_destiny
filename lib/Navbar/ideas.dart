@@ -104,7 +104,7 @@ class _IdeasState extends State<Ideas> {
                                 idea.image.isNotEmpty
                                     ? Image.network(
                                   idea.image,
-                                  height: 190,
+                                  height: 170,
                                   width: double.infinity,
                                   fit: BoxFit.fitWidth,
                                 )

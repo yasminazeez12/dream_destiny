@@ -20,9 +20,9 @@ class _UploadpackagesState extends State<Uploadpackages> {
   String _imageUrl = '';
   bool _isuploading = false;
 
-  TextEditingController packagename=TextEditingController();
-  TextEditingController price=TextEditingController();
-  TextEditingController description=TextEditingController();
+  TextEditingController _packagenamecontroller=TextEditingController();
+  TextEditingController _pricecontroller=TextEditingController();
+  TextEditingController _descriptioncontroller=TextEditingController();
 
    final _formkey = GlobalKey<FormState>();
 
@@ -38,7 +38,7 @@ class _UploadpackagesState extends State<Uploadpackages> {
       String uniqueId = _generateUniqueProductId();
 
       
-      Modelpackage uploadModel = Modelpackage(packagename: packagename.text, price: price.text, description: description.text,
+      Modelpackage uploadModel = Modelpackage(packagename: _packagenamecontroller.text, price: _pricecontroller.text, description: _descriptioncontroller.text,
       image: _imageUrl
       );
              try {
@@ -46,9 +46,9 @@ class _UploadpackagesState extends State<Uploadpackages> {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text("Product added successlly")));
 
-               packagename.clear();
-        price.clear();
-        description.clear();
+               _packagenamecontroller.clear();
+        _pricecontroller.clear();
+        _descriptioncontroller.clear();
 
          setState(() {
         
@@ -70,123 +70,125 @@ class _UploadpackagesState extends State<Uploadpackages> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Form(
-        key: _formkey,
-        child: Center(
-          child: Column(
-            children: [
-              TextFormField(
-                controller: packagename,
-                validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'please select packagename';
-                    }
-                    return null;
-                  
-                  
-                  
-                },
-                decoration: InputDecoration(
-                  hintText: 'packagename',
-                ),
-              ),
-               TextFormField(
-                  controller:price ,
+      body: Center(
+        child: Form(
+          key: _formkey,
+          child: Center(
+            child: Column(
+              children: [
+                TextFormField(
+                  controller: _packagenamecontroller,
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'please select price';
-                    }
-                    return null;
+                      if (value == null || value.isEmpty) {
+                        return 'please select packagename';
+                      }
+                      return null;
+                    
+                    
+                    
                   },
-                decoration: InputDecoration(
-                  hintText: 'price',
-                ),
-              ),
-               TextFormField(
-                controller: description,
-                validator: (value) {
-                  if(value == null || value.isEmpty){
-                    return 'please select description';
-                  }
-                  return null;
-                },
-                decoration: InputDecoration(
-                  hintText: 'description',
-                ),
-              ),
-               SizedBox(
-                  height: 30,
-                ),
-                ElevatedButton(
-                  onPressed: () async {
-                    User? user = FirebaseAuth.instance.currentUser;
-                    ImagePicker picker = ImagePicker();
-                    XFile? file =
-                        await picker.pickImage(source: ImageSource.gallery);
-                    if (file == null) return;
-                    String uniqueFileName =
-                        DateTime.now().millisecondsSinceEpoch.toString();
-                    setState(() {
-                      _isuploading = true;
-                    });
-                    try {
-                      Reference refrenceDirUpload =
-                          FirebaseStorage.instance.ref().child('productImages/');
-                      Reference referenceImageUpload =
-                          refrenceDirUpload.child('$uniqueFileName.jpg');
-                      await referenceImageUpload.putFile(File(file.path));
-                      _imageUrl = await referenceImageUpload.getDownloadURL();
-                      setState(() {
-                        _isuploading = false;
-                      });
-                    } catch (e) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("Error in image uploading")));
-                      setState(() {
-                        _isuploading = false;
-                      });
-                    }
-            
-                    ;
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.camera_alt),
-                      Text('Upload image'),
-                    ],
+                  decoration: InputDecoration(
+                    hintText: 'packagename',
                   ),
                 ),
-                  if (_isuploading) CircularProgressIndicator(),
-                if (!_isuploading)
-                  _imageUrl.isNotEmpty
-                      ? Container(
-                          child: Image.network(
-                            _imageUrl,
-                            height: 200,
-                            width: 200,
-                            fit: BoxFit.fitHeight,
-                          ),
-                        )
-                      : Icon(
-                          Icons.image,
-                          size: 150,
-                          color: Colors.grey,
-                        ),
-                SizedBox(
-                  height: 15,
+                 TextFormField(
+                    controller:_pricecontroller ,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'please select price';
+                      }
+                      return null;
+                    },
+                  decoration: InputDecoration(
+                    hintText: 'price',
+                  ),
                 ),
-                SizedBox(
-                  height: 150,
+                 TextFormField(
+                  controller: _descriptioncontroller,
+                  validator: (value) {
+                    if(value == null || value.isEmpty){
+                      return 'please select description';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    hintText: 'description',
+                  ),
                 ),
-                ElevatedButton(
-                  onPressed: addproductToFirebase,
-                  child: Text('Submit'),
-                ),
-
-        
+                 SizedBox(
+                    height: 30,
+                  ),
+                  ElevatedButton(
+                    onPressed: () async {
+                      User? user = FirebaseAuth.instance.currentUser;
+                      ImagePicker picker = ImagePicker();
+                      XFile? file =
+                          await picker.pickImage(source: ImageSource.gallery);
+                      if (file == null) return;
+                      String uniqueFileName =
+                          DateTime.now().millisecondsSinceEpoch.toString();
+                      setState(() {
+                        _isuploading = true;
+                      });
+                      try {
+                        Reference refrenceDirUpload =
+                            FirebaseStorage.instance.ref().child('productImages/');
+                        Reference referenceImageUpload =
+                            refrenceDirUpload.child('$uniqueFileName.jpg');
+                        await referenceImageUpload.putFile(File(file.path));
+                        _imageUrl = await referenceImageUpload.getDownloadURL();
+                        setState(() {
+                          _isuploading = false;
+                        });
+                      } catch (e) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("Error in image uploading")));
+                        setState(() {
+                          _isuploading = false;
+                        });
+                      }
               
-            ],
+                      
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.camera_alt),
+                        Text('Upload image'),
+                      ],
+                    ),
+                  ),
+                    if (_isuploading) CircularProgressIndicator(),
+                  if (!_isuploading)
+                    _imageUrl.isNotEmpty
+                        ? Container(
+                            child: Image.network(
+                              _imageUrl,
+                              height: 200,
+                              width: 200,
+                              fit: BoxFit.fitHeight,
+                            ),
+                          )
+                        : Icon(
+                            Icons.image,
+                            size: 150,
+                            color: Colors.grey,
+                          ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  SizedBox(
+                    height: 150,
+                  ),
+                  ElevatedButton(
+                    onPressed: addproductToFirebase,
+                    child: Text('Submit'),
+                  ),
+        
+          
+                
+              ],
+            ),
           ),
         ),
       ),

@@ -1,5 +1,7 @@
+import 'package:dream_destiny/Startingpage.dart';
 import 'package:dream_destiny/firebase_options.dart';
 import 'package:dream_destiny/login_Signp/login.dart';
+import 'package:dream_destiny/login_Signp/register.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

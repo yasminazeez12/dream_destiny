@@ -22,11 +22,11 @@ class _CartScreenProviderState extends State<CartScreenProvider> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Cart'),
+        title: const Text('My favourites'),
         automaticallyImplyLeading: true,
       ),
       body: cart.CartItems.isEmpty
-          ? Center(child: const Text('Your cart is empty'))
+          ? Center(child: const Text('Your shortlist.empty'))
           : SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),

@@ -1,145 +1,129 @@
-import 'package:flutter/material.dart';
+// import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
 
-import '../chat.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:dream_destiny/Upload/uploadpackagedeatils/modelpackage.dart';
+// import 'package:dream_destiny/cartProviderModel/podctPeviewsingProvider.dart';
+// import 'package:flutter/material.dart';
 
-class Packages extends StatefulWidget {
-  const Packages({super.key});
+// import '../chat.dart';
 
-  @override
-  State<Packages> createState() => _PackagesState();
-}
+// class Packages extends StatefulWidget {
+//   const Packages({super.key});
 
-class _PackagesState extends State<Packages> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Select your package',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 8),
-            Text(
-              'Plan your wedding with DREAMY DESTINY packages',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Kerala Destination wedding',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 10),
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Kerala premium package',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              'Rs 10,00000',
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                        Spacer(),
-                        Row(
-                          children: [
-                            Image(
-                              image: AssetImage(
-                                  'assets/c4d68b22-d4df-4528-ad03-ffec3822ecdd.jpg'),
-                              height: 40,
-                              width: 40,
-                            ),
-                            SizedBox(width: 10),
-                            Image(
-                              image: AssetImage(
-                                  'assets/7c3234270d04f784b389c41994920429.jpg'),
-                              height: 40,
-                              width: 40,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Text(
-                      'Inclusions:',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      '. Accommodation for 2 nights 200...',
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    Text(
-                      '. All meals inclded',
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    Text(
-                      '. Banquet usage for function',
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    Text(
-                      '. Other License applicable',
-                      style: TextStyle(
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        'View Details',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.red,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Navigate to the ChatScreen
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => ChatScreen(),
-          ));
-        },
-        backgroundColor: Colors.green[300],
-        child: Icon(
-          Icons.message_outlined,
-          color: Colors.white,
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   State<Packages> createState() => _PackagesState();
+// }
+
+// class _PackagesState extends State<Packages> {
+
+//   late Stream<QuerySnapshot> _streampackageitems; 
+
+//    @override
+//   void initState() {
+//     super.initState();                                   // step 3 :to call firebase,firestore
+//     _streampackageitems = FirebaseFirestore.instance
+//         .collection('packagedetails')
+        
+//         .snapshots();
+//   }
+  
+  
+  
+   
+
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         backgroundColor: Colors.green,
+//         title: Text('Select your package'),
+        
+        
+//       ),
+//        body: StreamBuilder<QuerySnapshot>(                     // step 4 : calling streambuilder
+//         stream: _streampackageitems,                         // step 5 : calling step 2 name
+//         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+//           if (snapshot.hasError) {
+//             return Center(child: Text(snapshot.error.toString()));
+//           }
+//           if (snapshot.connectionState == ConnectionState.active) {
+//             List<Modelpackage> items = snapshot.data!.docs            // saving firebase snapshots in items         
+//                 .map((doc) => Modelpackage.fromMap(                    //(change current model name)
+//                     doc.data() as Map<String, dynamic>))
+//                 .toList();
+
+//             return GridView.builder(
+//               itemCount: items.length,
+//               itemBuilder: (BuildContext context, int index) {
+//                 Modelpackage thisItem = items[index];     // converting firebase list in to this item(changing with index)
+//                 log('Image URL: ${thisItem.image}');       // not important       
+
+//                 return Container(
+//                     decoration: BoxDecoration(
+//                       border: Border.all(
+//                           color: Colors.grey.shade300,
+//                           width: 2), // Border color and width
+//                       borderRadius: BorderRadius.circular(8), // Rounded corners
+//                     ),
+//                     child: Column(
+//                       mainAxisAlignment: MainAxisAlignment.center,
+//                       crossAxisAlignment: CrossAxisAlignment.center,
+//                       children: [
+//                         thisItem.image.isNotEmpty
+//                             ? Image.network(thisItem.image,
+//                                 width:
+//                                     double.infinity, // Adjust width as needed
+//                                 height: 120, // Adjust height as needed
+//                                 fit: BoxFit.cover, errorBuilder:
+//                                     (BuildContext context, Object exception,
+//                                         StackTrace? stackTrace) {
+//                                 return Icon(Icons.broken_image, size: 50);
+//                               } // Fallback in case of error
+//                                 )
+//                             : const Icon(Icons.broken_image, size: 60),
+//                         // Adjust icon size as needed
+//                         const SizedBox(
+//                             height: 8), // Space between image and text
+//                         Text(
+//                           thisItem.packagename.isNotEmpty
+//                               ? thisItem.packagename
+//                               : 'Name not available',
+//                           textAlign: TextAlign.center,
+//                           style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
+//                         ),
+//                         Text('Price:  ${thisItem.price.toString()}\$'),
+//                         Text('description:${thisItem.description.toString()}'),
+//                         TextButton(
+//                             onPressed: () {
+//                               Navigator.push(
+//                                   context,
+//                                   MaterialPageRoute(
+//                                       builder: (context) =>
+//                                           ProductPreviewProvider(
+//                                             detailedProduct: thisItem,
+//                                           )));
+//                             },
+//                             child: Text("View"))
+//                       ],
+//                     ));
+//               },
+//               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+//                 crossAxisCount: 2, // Number of columns
+//                 mainAxisSpacing: 10, // Space between rows
+//                 crossAxisSpacing: 10, // Space between columns
+//                 childAspectRatio:
+//                     .7, // Aspect ratio of each grid item or height adjust
+//               ),
+//             );
+//           }
+
+//           return const Center(child: CircularProgressIndicator());
+//         },
+//       ),
+      
+      
+     
+//     );
+//   }
+// }

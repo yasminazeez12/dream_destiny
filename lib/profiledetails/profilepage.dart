@@ -110,6 +110,7 @@ class _ProfilepageState extends State<Profilepage> {
               children: [
                 Text('Get updates on WhatsApp'),
                 Switch(
+                  activeColor: const Color.fromARGB(255, 13, 126, 17),
                   value: getUpdatesOnWhatsApp,
                   onChanged: (bool newValue) {
                     setState(() {

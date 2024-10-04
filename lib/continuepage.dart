@@ -1,4 +1,5 @@
 import 'package:dream_destiny/gopage.dart';
+import 'package:dream_destiny/people.dart';
 import 'package:dream_destiny/weddingdate.dart';
 import 'package:flutter/material.dart';
 
@@ -118,7 +119,7 @@ class _ContinuepageState extends State<Continuepage> {
                       ? () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => Gopage(),
+                              builder: (context) => People(),
                             ),
                           );
                         }
